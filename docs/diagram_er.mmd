@@ -1,0 +1,54 @@
+erDiagram
+    USUARIO ||--o{ COTIZACION : realiza
+    COTIZACION }o--|| VEHICULO : aplica_a
+    COTIZACION }o--|| CONDUCTOR : asociado
+    COTIZACION ||--o{ COBERTURA_SELECCIONADA : contiene
+    COBERTURA ||--o{ COBERTURA_SELECCIONADA : referencia
+    VEHICULO }|..|{ MODELO : corresponde_a
+    MODELO }|..|{ MARCA : pertenece_a
+
+    USUARIO {
+      int id PK
+      string nombre
+      string email
+    }
+    COTIZACION {
+      int id PK
+      datetime fecha
+      decimal prima_base
+      decimal prima_total
+      json payload_input
+    }
+    VEHICULO {
+      int id PK
+      int anio
+      string uso
+      int modelo_id FK
+    }
+    CONDUCTOR {
+      int id PK
+      int edad
+      int antiguedad_licencia
+      boolean historial_siniestros
+    }
+    COBERTURA {
+      int id PK
+      string nombre
+      string tipo
+      decimal monto
+    }
+    COBERTURA_SELECCIONADA {
+      int id PK
+      int cobertura_id FK
+      int cotizacion_id FK
+      decimal importe
+    }
+    MODELO {
+      int id PK
+      string nombre
+      int marca_id FK
+    }
+    MARCA {
+      int id PK
+      string nombre
+    }

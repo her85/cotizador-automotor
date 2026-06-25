@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body { @apply bg-navy-950 text-slate-text antialiased; }
+  ::selection { @apply bg-accent/30 text-white; }
+}
+
+@layer components {
+  .card { @apply bg-navy-800 border border-slate-border rounded-xl p-6; }
+  /* Mobile-first: smaller padding on phones, larger on md+ */
+  .card { @apply p-4 md:p-6; }
+  .input {
+    @apply w-full bg-navy-700 border border-slate-border rounded-lg px-4 py-2.5
+           text-white text-sm placeholder-slate-muted
+           focus:outline-none focus:border-accent/60 transition-colors;
+  }
+  .select {
+    @apply input appearance-none cursor-pointer;
+  }
+  .label { @apply block text-xs font-medium text-slate-muted mb-1.5; }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl
+           bg-accent text-white font-semibold text-sm
+           hover:bg-accent-light transition-colors disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl
+           border border-slate-border text-slate-text font-medium text-sm
+           hover:border-accent/50 hover:text-white transition-colors;
+  }
+  .step-indicator {
+    @apply flex items-center justify-center w-8 h-8 rounded-full text-sm font-semibold border-2 transition-all duration-300;
+  }
+  .section-label { @apply text-xs font-mono text-accent uppercase tracking-widest; }
+
+  /* Page container mobile-first */
+  .container {
+    @apply mx-auto px-4 w-full;
+    max-width: 100%;
+  }
+  @screen md {
+    .container { max-width: 768px; }
+  }
+  @screen lg {
+    .container { max-width: 1024px; }
+  }
+}

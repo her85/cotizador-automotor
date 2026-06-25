@@ -1,0 +1,11 @@
+flowchart TD
+  A[Inicio: Usuario abre cotizador] --> B[Step1: Datos del vehículo]
+  B --> C[Step2: Datos del conductor]
+  C --> D[Step3: Selección de coberturas]
+  D --> E[Enviar datos al backend]
+  E --> F{Validación}
+  F -- Error --> G[Mostrar errores y correcciones]
+  F -- OK --> H[Calcular prima en services.py]
+  H --> I[Devolver cotización con desglose]
+  I --> J[Mostrar resultado en UI]
+  J --> K[Fin - Guardar cotizacion]

@@ -1,0 +1,18 @@
+graph LR
+  subgraph Frontend
+    FV[Vue App]
+    FV --> CompSteps[Components: Step1..Step4]
+    FV --> Store[Pinia Store]
+    FV --> APIClient[API Client]
+  end
+
+  subgraph Backend
+    DJANGO[API Django]
+    DJANGO --> Views[Views / Endpoints]
+    DJANGO --> Services[Services: lógica de negocio]
+    DJANGO --> Models[Models / SQLite]
+  end
+
+  APIClient -->|HTTP JSON| DJANGO
+  Store --> FV
+  Services --> Models
