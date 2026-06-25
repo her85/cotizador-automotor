@@ -179,7 +179,7 @@ flowchart TD
    F -- OK --> H[Calcular prima en `services.py`]
    H --> I[Devolver cotización con desglose]
    I --> J[Mostrar resultado en UI]
-   J --> K[Fin / Guardar cotización (opcional)]
+   J --> K[Fin - Guardar cotización opcional]
 ```
 
 **Diagrama de Componentes (arquitectura de alto nivel)**
